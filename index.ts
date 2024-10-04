@@ -49,6 +49,17 @@ interface SuperAirplane {
     wings: string;
 }
 
+// interface ComplexVehicle {    //Объединение интерфейсов 
+//     name: "car" | "ship" | "airplane" | "smth";
+//     engine: string;
+//     wheels?: {
+//         number: number;
+//         type: string;
+//     };
+//     sail?: string;
+//     wings?: string;
+// }
+
 type Vehicle = Car | Ship | Airplane | SuperAirplane;
 
 function isCar(car: Vehicle): car is Car {
@@ -61,7 +72,7 @@ function isShip(ship: Vehicle): ship is Ship {
     return "sail" in ship;
 }
 
-function repairVehicle(vehicle: Vehicle) {
+function repairVehicle(vehicle: Vehicle) { //(vehicle:ComplexVehicle)
     // if (isCar(vehicle)) {
     //     vehicle.wheels;
     //     vehicle.engine;
@@ -86,7 +97,7 @@ function repairVehicle(vehicle: Vehicle) {
             console.log(vehicle.wings);
             break;
         default:
-            const smth: never = vehicle; //Проверка на соответствие всех интерфейсов
+            // const smth: never = vehicle; ////Проверка на соответствие всех интерфейсов
             console.log("Ouups!");
     }
 }
